@@ -109,7 +109,7 @@ async function sendEmail(topic, contentJSON) {
   }
 
   const messageData = {
-    from: "ZeltlagerBot",
+    from: "ZeltlagerBot <mailgun@your-domain.com>",
     to: "johannes.a.breitenbach@gmail.com",
     subject: `New ${topic}`,
     text: textContent,
