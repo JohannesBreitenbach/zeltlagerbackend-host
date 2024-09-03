@@ -122,6 +122,21 @@ async function sendEmail(topic, contentJSON) {
   } catch (error) {
     console.error("Error sending email:", error);
   }
+
+  const messageData2 = {
+    from: "ZeltlagerBot <mailgun@your-domain.com>",
+    to: "info.ulferzeltlager@web.de",
+    subject: `New ${topic}`,
+    text: textContent,
+    html: htmlContent,
+  };
+
+  try {
+    const response = await mg.messages.create(DOMAIN, messageData2);
+    console.log("Email sent successfully to Zeltlager-Mail:", response);
+  } catch (error) {
+    console.error("Error sending email to Zeltlager-Mail:", error);
+  }
 }
 
 module.exports = sendEmail;
